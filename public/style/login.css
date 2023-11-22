@@ -53,6 +53,7 @@ div.container div.right-container div.a-form p.sign-in-info {
     font-family: 'Montserrat', sans-serif;
 }
 
+
 div.container div.right-container div.a-form p.sign-in-info span.register-span {
     color: rgb(12, 33, 193);
     cursor: pointer;
@@ -72,6 +73,20 @@ p.email-p, p.password-p {
 
 div.container div.right-container div.a-form p.forgot-password {
     font-size: 1em;
+}
+
+.a-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 

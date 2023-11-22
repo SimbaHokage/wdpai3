@@ -22,15 +22,23 @@
                 <h1>Sign in</h1>
                 <p class="sign-in-info">if you don't have an account register.</p>
                 <p class="sign-in-info sign-in-info-second">You can <span class="register-span">Register here!</span></p>
-                <form>
+                <form class="login" action="loginData" method="POST">
+                    <div class="message">
+                        <?php if(isset($messages)) {
+                            foreach ($messages as $message) {
+                                echo $message;
+                            }
+                        }?>
+                    </div>
                     <p class="email-p">Email</p>
                     <input class="email-input" name="email" type="text" placeholder="email@gmail.com">
                     <p class="password-p">Password</p>
                     <input class="password-input" name="password" type="password" placeholder="password">
+                    <button class="login-button" type="submit">
+                        <p>Login</p>
+                    </button>
                 </form>
-                <button class="login-button">
-                    <p>Login</p>
-                </button>
+
                 <p class="sign-in-info forgot-password">Forgot password? <span class="register-span forgot-password">Click here</span></p>
             </div>
         </div>
