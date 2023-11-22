@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+div.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100vh;
+}
+
+div.container div.left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100vh;
+    background-image: url("../img/ligher.png");
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+div.container div.right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100vh;
+    background-image: url("../img/wallpaperflare.com_wallpaper.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+div.container div.right-container {
+    width: 100%;
+}
+
+div.container div.left-container-disactive {
+    display: none;
+}
+
+.title {
+    font-size: 3em;
+    color: rgb(0, 8, 66);
+    margin-bottom: 3em;
+}
+
+.date-details-div, .add-exercise-div {
+    color: rgb(0, 8, 66);
+    margin: 0.5em;
+    position: relative;
+}
+
+p.date {
+    font-size: 2em;
+
+}
+
+button.details {
+    padding: 1em 7em 0.4em 0em;
+    font-size: 1.7em;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: rgb(0, 8, 66);
+}
+
+.line {
+    width: 20em;
+    height: 1px;
+    background-color: #000;
+}
+
+.difficult {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    font-size: 1.4em;
+}
+
+.add {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    background: none;
+    font-size: 10em;
+}
+
+.parameter-p {
+    font-size: 1.7em;
+    margin: 0.4em 0.4em 0.4em 0;
+}
+
+.input-parameters {
+    border: none;
+    background: none;
+    padding: 0.4em 0.8em;
+    margin: 0.4em 0.4em 0.4em 0em;
+}
+
+.input-parameters::placeholder {
+    color: rgb(0, 8, 66);
+    padding: 1em;
+}
+
+.add-exercise {
+    margin: 1em 1em 1em 0em;
+    padding: 1em 8.56em;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(12, 33, 193);
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    margin-bottom: 1em;
+    transition: background-color, 0.5s, 0.5s;
+}
+
+.add-exercise:hover {
+    background-color: rgb(9, 24, 136);
+}
+/* color: #5A5A5D; */
