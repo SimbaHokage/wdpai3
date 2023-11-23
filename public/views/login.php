@@ -22,7 +22,7 @@
                 <h1>Sign in</h1>
                 <p class="sign-in-info">if you don't have an account register.</p>
                 <p class="sign-in-info sign-in-info-second">You can <span class="register-span">Register here!</span></p>
-                <form class="login" action="loginData" method="POST">
+                <form class="login" action="login" method="POST">
                     <div class="message">
                         <?php if(isset($messages)) {
                             foreach ($messages as $message) {

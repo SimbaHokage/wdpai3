@@ -8,6 +8,6 @@ Routing::get('login', 'DefaultController');
 Routing::get('register', 'DefaultController');
 Routing::get('trainingsToBe', 'DefaultController');
 Routing::get('welcomeScreen', 'DefaultController');
-Routing::post('loginData', 'SecurityController');
+Routing::post('login', 'SecurityController');
 
 Routing::run($path);

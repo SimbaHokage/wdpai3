@@ -5,13 +5,14 @@ require_once __DIR__.'/../models/User.php';
 
 class SecurityController extends AppController {
 
-    public function loginData() {
+    public function login() {
         $user = new User('jsnow@pk.edu.pl', 'admin',
         'John', 'Snow');
 
-        if($this->isPost()) {
-            return $this->loginData('loginData');
-        }
+        // if($this->isPost()) {
+        //     return $this->login('login');
+        // }
+
 
         $email = $_POST['email'];
         $password = $_POST['password'];
