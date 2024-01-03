@@ -27,7 +27,14 @@
                     <p class="sign-in-info">if you already have an account</p>
                     <p class="sign-in-info sign-in-info-second">you can <span class="register-span">login here!</span>
                     </p>
-                    <form>
+                    <form class="register" action="register" method="POST">
+                        <div class="message">
+                            <?php if(isset($messages)) {
+                                foreach ($messages as $message) {
+                                    echo $message;
+                                }
+                            }?>
+                        </div>
                         <p class="email-p">Email</p>
                         <input class="email-input" name="email" type="text" placeholder="Enter your email address">
                         <p class="username-p">Username</p>
@@ -35,12 +42,15 @@
                         <p class="password-p">Password</p>
                         <input class="password-input" name="password" type="password" placeholder="Enter your password">
                         <p class="password-p">Confirm password</p>
-                        <input class="password-input" name="password" type="password"
+                        <input class="password-input" name="confirmPassword" type="password"
                             placeholder="Confirm your password">
+                        <button class="login-button" type="submit">
+                            <p>Register</p>
+                        </button>
                     </form>
-                    <button class="login-button">
-                        <p>Register</p>
-                    </button>
+<!--                    <button class="login-button">-->
+<!--                        <p>Register</p>-->
+<!--                    </button>-->
                     <p class="sign-in-info forgot-password">If you have an account <span
                             class="register-span forgot-password">login here</span></p>
                 </div>

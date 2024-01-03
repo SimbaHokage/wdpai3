@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>login</title>
     <link rel="stylesheet" href="public/style/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
                 <h1>Sign in</h1>
                 <p class="sign-in-info">if you don't have an account register.</p>
                 <p class="sign-in-info sign-in-info-second">You can <span class="register-span">Register here!</span></p>
-                <form class="login" action="login" method="POST">
+                <form class="login" action="loginFunction" method="POST">
                     <div class="message">
                         <?php if(isset($messages)) {
                             foreach ($messages as $message) {

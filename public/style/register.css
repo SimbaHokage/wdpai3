@@ -74,21 +74,29 @@ div.container div.right-container div.a-form p.sign-in-info-second {
     margin-bottom: 0.9em;
 }
 
+.register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 p.email-p, p.password-p, p.username-p {
-    
+    align-self: flex-start;
     color: #5A5A5D;
     font-size: 1.5em;
-    margin: 0.3em 0.3em 0.3em 0em;
+    margin: 0.3em 0.3em 0.3em 0.6em;
 }
 
 div.container div.right-container div.a-form p.forgot-password {
     font-size: 1.2em;
-    margin-left: 3em;
+    margin-left: 5.4em;
 }
 
 
 
 div.container div.right-container div.a-form input.email-input, input.password-input, input.username-input {
+    align-self: flex-start;
     color: rgb(90, 90, 93, 0.4);
     border: 2px solid rgb(169, 203, 236);
     border-radius: 10px;
@@ -104,6 +112,7 @@ input.password-input {
 }
 
 .login-button {
+    display: block;
     margin: 1em 1em 1em 0em;
     padding: 1em 8.56em;
     border: none;
@@ -113,6 +122,7 @@ input.password-input {
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
+    margin-left: 2em;
     margin-bottom: 1em;
     transition: background-color, 0.5s, 0.5s;
 }

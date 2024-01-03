@@ -26,7 +26,7 @@ class AppController {
 
             ob_start();
             include $templatePath;
-            $output = ob_get_clean;
+            $output = ob_get_clean();
         }
 
         print $output;
