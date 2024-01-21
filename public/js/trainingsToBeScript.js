@@ -1,8 +1,8 @@
-let $nameOfExerciseInput; // input nazwa ćwiczenia
-let $rep;
-let $set;
-let $rpe;
-let $addBtn;
+// let $nameOfExerciseInput; // input nazwa ćwiczenia
+// let $rep;
+// let $set;
+// let $rpe;
+// let $addBtn;
 let $showAddExercisePanelButton;
 let $newExercise; // nowo dodany LI, nowe ćwiczenie
 let $allExercises; // lista wszystkich dodanych LI
@@ -17,11 +17,11 @@ const main = () => {
 }
 
 const prepareDOMElements = () => {
-    $nameOfExerciseInput = document.querySelector('.name-of-exercise-input')
-    $rep = document.querySelector('.reps-input')
-    $set = document.querySelector('.sets-input')
-    $rpe = document.querySelector('.rpe-input')
-    $addBtn = document.querySelector('.add-exercise')
+    // $nameOfExerciseInput = new FormData(document.querySelector('.name-of-exercise-input'))
+    // $rep = document.querySelector('.reps-input')
+    // $set = document.querySelector('.sets-input')
+    // $rpe = document.querySelector('.rpe-input')
+    // $addBtn = document.querySelector('.add-exercise')
     $showAddExercisePanelButton = document.querySelector('.add')
     $alertParagraph = document.querySelector('.alert')
     $ulList = document.querySelector('.list')
@@ -30,43 +30,43 @@ const prepareDOMElements = () => {
 }
 
 const prepareDOMEvents = () => {
-    $addBtn.addEventListener('click', addNewTask)
+    // $addBtn.addEventListener('click', addNewTask)
     $showAddExercisePanelButton.addEventListener('click', checkClick)
 }
 
-const addNewTask = () => {
-    if($nameOfExerciseInput.value.trim() === '' || $rep.value.trim() === '' || $set.value.trim() === '') {
-        $alertParagraph.textContent = 'Check fields and pass proper values. (Reps, sets and rpe are in number type.)'
-    } else {
-        createTask($rep.value, $set.value, $rpe.value, $nameOfExerciseInput.value)
-        $nameOfExerciseInput.value = ''
-        $rep.value = ''
-        $set.value = ''
-        $rpe.value = ''
-        $alertParagraph.textContent = ''
-    }
-}
+// const addNewTask = () => {
+//     if($nameOfExerciseInput.value.trim() === '' || $rep.value.trim() === '' || $set.value.trim() === '') {
+//         $alertParagraph.textContent = 'Check fields and pass proper values. (Reps, sets and rpe are in number type.)'
+//     } else {
+//         createTask($rep.value, $set.value, $rpe.value, $nameOfExerciseInput.value)
+//         $nameOfExerciseInput.value = ''
+//         $rep.value = ''
+//         $set.value = ''
+//         $rpe.value = ''
+//         $alertParagraph.textContent = ''
+//     }
+// }
 
-const createTask = (rep, set, rpe, nameOfExerciseInput) => {
-    const liElement = document.createElement('li')
-    if(rpe.trim() === '') {
-        liElement.textContent = `${nameOfExerciseInput} ${set} x ${rep}`
-    } else {
-        liElement.textContent = `${nameOfExerciseInput} ${set} x ${rep} RPE: ${rpe}`
-    }
-    
-    createTools(liElement)
-}
+// const createTask = (rep, set, rpe, nameOfExerciseInput) => {
+//     const liElement = document.createElement('li')
+//     if(rpe.trim() === '') {
+//         liElement.textContent = `${nameOfExerciseInput} ${set} x ${rep}`
+//     } else {
+//         liElement.textContent = `${nameOfExerciseInput} ${set} x ${rep} RPE: ${rpe}`
+//     }
+//
+//     createTools(liElement)
+// }
 
-const createTools = element => {
-    $ulList.append(element)
-}
+// const createTools = element => {
+//     $ulList.append(element)
+// }
 
-const enterExercise = (e) => {
-    if(e.key === 'Enter' && e.code === 'Enter') {
-        addNewTask()
-    }
-}
+// const enterExercise = (e) => {
+//     if(e.key === 'Enter' && e.code === 'Enter') {
+//         addNewTask()
+//     }
+// }
 
 const checkClick = e => {
     $leftContainer.classList.toggle('left-container-disactive')

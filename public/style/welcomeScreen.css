@@ -6,7 +6,9 @@
 
 html {
     font-size: 62.5%;
+    overflow-y: hidden;
 }
+
 
 .header {
     position: absolute;
@@ -22,7 +24,7 @@ div.container {
     align-items: center;
     flex-direction: row;
     height: 100vh;
-    
+
 }
 
 div.container div.left-img-container {
@@ -44,3 +46,48 @@ div.container div.right-container {
     color: rgb(0, 8, 66);
     font-size: 10em;
 }
+
+.nav {
+    padding: 20px 40px;
+    text-align: right;
+    font-size: 2em;
+}
+
+.link {
+    margin: 1em;
+    position: relative;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: rgb(0, 8, 66);
+    text-transform: uppercase;
+}
+
+.link,
+.link::after,
+.link::before {
+    transition: .3s;
+}
+
+.link:visited {
+    color: rgb(0, 8, 66);
+}
+
+.style-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: rgb(0, 8, 66);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .3s;
+}
+
+.style-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+

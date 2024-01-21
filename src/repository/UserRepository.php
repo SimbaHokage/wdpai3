@@ -22,7 +22,8 @@ class UserRepository extends Repository {
         return new User(
             $user['email'],
             $user['password'],
-            $user['username']
+            $user['username'],
+            $user['id_user']
         );
     }
 
@@ -37,6 +38,6 @@ class UserRepository extends Repository {
             password_hash($password, PASSWORD_BCRYPT),
             $email
         ]);
-
     }
+
 }

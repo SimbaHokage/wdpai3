@@ -14,7 +14,6 @@ class SecurityController extends AppController {
             $this->render('login');
         }
 
-
         $email = $_POST['email'];
         $password = $_POST['password'];
 
@@ -35,7 +34,7 @@ class SecurityController extends AppController {
         if(!password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
-
+        $this->setCookie($email);
 //        return $this->render('welcomeScreen'); xxxxxxxxxxxxxxxxxxx
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/welcomeScreen");
@@ -62,5 +61,30 @@ class SecurityController extends AppController {
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/login");
+    }
+
+    public function logout() {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->removeCookie();
+
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+        } else {
+            http_response_code(405);
+            echo 'Invalid operation';
+        }
+    }
+
+    private function setCookie(string $email) {
+        $encryptionKey = '2w5z8eAF4lLknKmQpSsVvYy3cd9gNjRm';
+        $iv = '1234567891011121';
+        $cipher = "aes-256-cbc";
+        $expire = time() + (60 * 60 * 24);
+        $encryptedData = openssl_encrypt($email, $cipher, $encryptionKey, 0, $iv);
+        setcookie('loggedUser', $encryptedData, $expire, '/', '', true, true);
+    }
+
+    private function removeCookie() {
+        setcookie('loggedUser', '', time() - 3600, '/');
     }
 }
