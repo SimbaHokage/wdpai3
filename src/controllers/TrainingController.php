@@ -56,9 +56,9 @@ class TrainingController extends AppController
             header("Location: {$url}/login");
             exit();
         }
-
+        $exercises = [];
         $this->trainingRepository->addTraining($_POST['training'], $this->getLoggedUserID());
-        return $this->render('trainingsToBe');
+        return $this->render('trainingsToBe', ['exercises' => $exercises]);
     }
 
     public function getData() {

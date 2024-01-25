@@ -27,7 +27,8 @@ class ExerciseController extends AppController
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/login");
         }
-        $this->render('trainingsToBe');
+        $exercises = [];
+        $this->render('trainingsToBe', ['exercises' => $exercises]);
     }
 
     public function addExercise() {

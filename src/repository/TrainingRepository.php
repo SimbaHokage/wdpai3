@@ -40,7 +40,7 @@ class TrainingRepository extends Repository
 
     public function getAllTrainingDone($idUser) {
         $statement = $this->database->connect()->prepare('
-        SELECT * FROM trainings WHERE date < CURRENT_DATE;
+        SELECT * FROM trainings WHERE date < CURRENT_DATE AND id_user = \''.$idUser.'\'
         ');
 
         $statement->execute();
@@ -63,7 +63,7 @@ class TrainingRepository extends Repository
 
     public function getAllTrainingToDo($idUser) {
         $statement = $this->database->connect()->prepare('
-        SELECT * FROM trainings WHERE date >= CURRENT_DATE;
+        SELECT * FROM trainings WHERE date >= CURRENT_DATE AND id_user = \''.$idUser.'\'
         ');
 
         $statement->execute();
