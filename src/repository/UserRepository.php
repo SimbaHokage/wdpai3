@@ -40,4 +40,16 @@ class UserRepository extends Repository {
         ]);
     }
 
+    public function forgotPassword(string $pass, User $user) {
+        $statement = $this->database->connect()->prepare('
+        UPDATE users
+        SET password = (?)
+        WHERE id_user = (?)
+        ');
+        $statement->execute([
+            password_hash($pass, PASSWORD_BCRYPT),
+            $user->getUserID()
+        ]);
+    }
+
 }

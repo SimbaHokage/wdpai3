@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trainings to be</title>
+    <link rel="stylesheet" href="public/style/hamburger.css">
+    <link rel="stylesheet" href="public/style/hambMenu.css">
     <link rel="stylesheet" href="public/style/trainings.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,15 +15,39 @@
 </head>
 
 <body>
+
+<div class="header">
+    <button class="hamburger hamburger--emphatic" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+    </button>
+</div>
+
+<nav class="nav nav-desktop">
+    <a href="trainingHistory" class="link style-link">Historia treningów</a>
+    <form class="form" action="logout" method="POST">
+        <button class="logout-button">Wyloguj się</button>
+    </form>
+</nav>
+
+<header class="phone">
+    <div class="img-phone">
+        <div class="text">
+        </div>
+    </div>
+    <div class="links">
+        <a href="trainingHistory" class="link style-link">Historia treningów</a>
+        <form class="form" action="logout" method="POST">
+            <button class="logout-button">Wyloguj się</button>
+        </form>
+    </div>
+</header>
+
+
     <div class="container">
         <div class="right-container">
-            <div class="element-of-right-container">
-                <?php foreach ($exercises as $exercise) : ?>
-                <ul class="list">
-                    <p class="date"><?= $exercise->getName(); ?> <?= $exercise->getSets(); ?> x <?= $exercise->getReps() ?> RPE: <?= $exercise->getRPE() ?></p>
-                </ul>
-                <?php endforeach; ?>
-            </div>
+
             <div class="element-of-right-container">
                 <h1 class="title">Add Exercise</h1>
                  <form class="add-exercise-form" action="addExercise" method="POST">
@@ -50,6 +76,13 @@
                     </div>
                     <button class="add-exercise" type="submit">Add</button>
                  </form>
+            </div>
+            <div class="element-of-right-container">
+                <?php foreach ($exercises as $exercise) : ?>
+                    <ul class="list">
+                        <p class="date"><?= $exercise->getName(); ?> <?= $exercise->getSets(); ?> x <?= $exercise->getReps() ?> RPE: <?= $exercise->getRPE() ?></p>
+                    </ul>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

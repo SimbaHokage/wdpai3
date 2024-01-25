@@ -83,4 +83,27 @@ class TrainingRepository extends Repository
         }
         return $result;
     }
+
+    public function getTrainingByDate($date) {
+        $statement = $this->database->connect()->prepare('
+        SELECT * FROM trainings WHERE date = \''.$date.'\'
+        ');
+
+        $statement->execute();
+        $details = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach($details as $detail) {
+            return new Training($detail['date'], $detail['id_training'], $detail['id_user']);
+        }
+    }
+
+    public function deleteTraining($id, $date) {
+        $statement = $this->database->connect()->prepare('
+        DELETE FROM trainings WHERE id_training = (?) AND date = (?)
+        ');
+
+        $statement->execute([
+            $id,
+            $date
+        ]);
+    }
 }

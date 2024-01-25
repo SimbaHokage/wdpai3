@@ -9,43 +9,46 @@ html {
     overflow-x: hidden;
 }
 
+body {
+    background-color: #333;
+}
+
+.form {
+    display: inline-block;
+}
+
 div.container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    height: 100vh;
 }
 
-div.container div.left-container {
+div.left-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    width: 40%;
     height: 100vh;
-    background-image: url('../img/ligher.png');
-    background-position: center;
-    background-size: cover;
 }
 
-div.container div.left-first-container {
+div.left-first-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 7em;
+    margin: 8em;
 }
 
 .title {
     font-size: 3em;
-    color: rgb(0, 8, 66);
+    color: #FFC28B;
     margin-bottom: 1em;
 }
 
 .date-details-div,
 .add-exercise-div {
-    color: rgb(0, 8, 66);
+    color: #FFC28B;
     margin: 0.5em;
     position: relative;
 }
@@ -64,7 +67,7 @@ button.details {
     border: none;
     background: none;
     cursor: pointer;
-    color: rgb(0, 8, 66);
+    color: #FE6D4E;
 }
 
 .line {
@@ -78,6 +81,14 @@ button.details {
     top: 5px;
     right: 0;
     font-size: 1.4em;
+    background-color: transparent;
+    border: none;
+    color: #FE6D4E;
+    cursor: pointer;
+}
+
+.off {
+    display: none;
 }
 
 .add {
@@ -111,5 +122,33 @@ button.details {
     color: rgb(0, 8, 66);
     padding: 1em;
 }
+
+.date {
+    color: #FF9463;
+}
+
+.link {
+    color: #FE6D4EFF;
+}
+
+.link:visited {
+    color: #FE6D4EFF;
+}
+
+
+.style-link::after {
+    background-color: #819898;
+}
+
+@media (max-width: 500px) {
+    .left-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column !important;
+    }
+
+}
+
 
 

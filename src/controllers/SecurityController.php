@@ -37,7 +37,7 @@ class SecurityController extends AppController {
         $this->setCookie($email);
 //        return $this->render('welcomeScreen'); xxxxxxxxxxxxxxxxxxx
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/welcomeScreen");
+        header("Location: {$url}/welcomeScreenLoggeIn");
     }
 
     public function register() {
@@ -61,6 +61,42 @@ class SecurityController extends AppController {
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/login");
+    }
+
+    public function forgotPassword() {
+        if(!$this->isPost()) {
+            $this->render('forgotPassword');
+        }
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $confirmPassword = $_POST['confirmPassword'];
+
+        if($confirmPassword !== $password) {
+            return $this->render('forgotPassword', ['messages' => ['Difference between passwords.']]);
+        }
+
+        $userRepository = new UserRepository();
+
+        try {
+            $userRepository->forgotPassword($password, $userRepository->getUser($email));
+        } catch (NotFoundException $exception) {
+            return $this->render('forgotPassword', ['messages' => ['User with this email not exist.']]);
+        }
+
+
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/welcomeScreen");
+    }
+
+    public function welcomeScreenLoggeIn() {
+        if(!AuthenticationController::checkIsUserLogged()) {
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+        }
+
+        return $this->render('welcomeScreenLoggeIn');
     }
 
     public function logout() {

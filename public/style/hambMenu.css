@@ -1,32 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 62.5%;
-    overflow-y: hidden;
-}
-
-.header {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-body {
-    background-color: #333;
-}
-
-.form {
-    display: inline-block;
-}
-
-div.container-photo {
-    background-image: url('../img/pxfuel.jpg');
-}
-
 .nav {
     padding: 20px 40px;
     text-align: right;
@@ -40,7 +11,7 @@ div.container-photo {
     padding: 10px 20px;
     font-size: 1.2em;
     text-decoration: none;
-    color: #819898;
+    color: rgb(255, 255, 255);
     text-transform: uppercase;
 }
 
@@ -51,7 +22,7 @@ div.container-photo {
 }
 
 .link:visited {
-    color: #819898;
+    color: rgb(255, 255, 255)
 }
 
 .style-link::after {
@@ -61,7 +32,7 @@ div.container-photo {
     left: 0;
     height: 3px;
     width: 100%;
-    background-color: #819898;
+    background-color: rgb(145, 143, 143);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform .3s;
@@ -72,72 +43,79 @@ div.container-photo {
     transform-origin: left;
 }
 
-
-header.img {
+.logout-button {
     position: relative;
-    height: 100vh;
-    background-image: url('../img/pxfuel.jpg');
-    background-size: cover;
-    background-position: center;
-    color: rgb(200, 201, 199);
-    z-index: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    overflow: hidden;
 }
 
-div.text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    color: #c0dddd;
-    font-size: 2.5em;
-}
-
-div.text p {
-    font-size: 0.9em;
-}
-
-div.shadow {
+button::before,
+button::after {
+    display: block;
     position: absolute;
-    top: 0;
-    left: 0;
+    content: "";
+    transition: all 0.5s;
+    z-index: -1;
+}
+
+
+
+.logout-button::before,
+.logout-button::after {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: -5;
+    background-color: #FE6D4EFF;
+    transition: .5s;
 }
 
-.toggle {
-    display: none;
+.logout-button::before {
+    top: -50%;
+    left: -100%;
 }
 
-.logout-button {
-    color: #819898;
+.logout-button::after {
+    bottom: -50%;
+    right: -100%;
+}
+
+.logout-button:hover::before {
+    top: -50%;
+    left: 0;
+}
+
+.logout-button:hover::after {
+    bottom: -50%;
+    right: 0;
 }
 
 @media (max-width: 500px) {
 
-    .phone {
+    .add-training-button {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility .8s, opacity .8s;
+    }
+    .nav-desktop {
+        display: none;
+    }
+
+    .header {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 100;
+    }
+
+    .body {
         position: relative;
         width: 100vw;
         height: 100vh;
         perspective: 800px;
-    }
-
-    .img-phone {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        background-image: url('../img/pxfuel\ \(1\).jpg');
-        background-position: center;
-        background-size: cover;
-        transition: 0.8s;
-    }
-
-    .header {
-        z-index: 100;
     }
 
     .links {
@@ -156,13 +134,14 @@ div.shadow {
         transition: .8s;
         color: #fff;
         transform: rotateX(-180deg);
+        z-index: -2;
     }
 
     header.img {
         display: none;
     }
 
-    .phone--active {
+    .body--active {
         transform: rotate(0);
         opacity: 1;
     }
@@ -175,11 +154,18 @@ div.shadow {
     .links--active {
         transform: rotate(0);
         opacity: 1;
+        z-index: 10;
+    }
+
+    .add-training-button--active {
+        visibility: hidden;
+        opacity: 0;
     }
 }
 
+
 @media (min-width: 500px) {
-    .phone {
+    .header, .phone {
         display: none;
     }
 }

@@ -8,6 +8,81 @@ html {
     font-size: 62.5%;
 }
 
+body {
+    background-color: #333;
+    color: #fff;
+    overflow-y: hidden;
+}
+
+h1 {
+    color: #FFC28B;
+    font-size: 4em;
+    text-transform: uppercase;
+}
+
+.form {
+    display: inline-block;
+}
+
+.logout-button {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #235179;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+
+
+
+.nav {
+    padding: 20px 40px;
+    text-align: right;
+    font-size: 2em;
+    background-color: transparent;
+}
+
+
+.link {
+    margin: 1em;
+    position: relative;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #FF9463;
+    text-transform: uppercase;
+}
+
+.link,
+.link::after,
+.link::before {
+    transition: .3s;
+}
+
+.link:visited {
+    color: #FF9463;
+}
+
+.style-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: rgb(145, 143, 143);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .3s;
+}
+
+.style-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
 
 .add-training-form {
     height: 100vh;
@@ -17,6 +92,149 @@ html {
     flex-direction: column;
 }
 
-.add-training-button {
+.enter-date {
+    color: #FFC28B;
+    font-size: 3em;
+    text-align: center;
+    margin: 1em 0em 0.4em 0em;
+}
 
+
+.add-training-button {
+    position: relative;
+    display: block;
+    margin: 1em auto;
+    font-size: 3.4em;
+    padding: 0.15em 1.1em;
+    border: 1px solid #fff;
+    border-radius: 7px;
+    background: none;
+    color: #235179;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+button::before,
+button::after {
+    display: block;
+    position: absolute;
+    content: "";
+    transition: all 0.5s;
+    z-index: -1;
+}
+
+.add-training-button::before,
+.add-training-button::after,
+.logout-button::before,
+.logout-button::after {
+    width: 100%;
+    height: 100%;
+    background-color: #FE6D4EFF;
+    transition: .5s;
+}
+
+.add-training-button::before, .logout-button::before {
+    top: -50%;
+    left: -100%;
+}
+
+.add-training-button::after, .logout-button::after {
+    bottom: -50%;
+    right: -100%;
+}
+
+.add-training-button:hover::before, .logout-button:hover::before {
+    top: -50%;
+    left: 0;
+}
+
+.add-training-button:hover::after, .logout-button:hover::after {
+    bottom: -50%;
+    right: 0;
+}
+
+label input {
+    padding: 0.5em 1em;
+    font-size: 3em;
+    border-radius: 5px;
+    background-color: rgb(221, 220, 233);
+}
+
+
+@media (max-width: 500px) {
+
+    .add-training-button {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility .8s, opacity .8s;
+    }
+    .nav-desktop {
+        display: none;
+    }
+
+    .header {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 100;
+    }
+
+    .body {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        perspective: 800px;
+    }
+
+    .links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 30px;
+        background-color: #333;
+        opacity: 0;
+        transition: .8s;
+        color: #fff;
+        transform: rotateX(-180deg);
+        z-index: -2;
+    }
+
+    header.img {
+        display: none;
+    }
+
+    .body--active {
+        transform: rotate(0);
+        opacity: 1;
+    }
+
+    .img-phone--active {
+        transform: rotateY(-180deg);
+        opacity: 0;
+    }
+
+    .links--active {
+        transform: rotate(0);
+        opacity: 1;
+        z-index: 10;
+    }
+
+    .add-training-button--active {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+
+@media (min-width: 500px) {
+    .header, .phone {
+        display: none;
+    }
 }

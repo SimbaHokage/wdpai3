@@ -19,7 +19,7 @@ class AuthenticationController
     public static function checkIsUserLogged() {
         if(!self::isUserLogged()) {
             $url = "http://$_SERVER[HTTP_HOST]";
-            header("Location: {$url}/welcomeScreen");
+            header("Location: {$url}/login");
             exit();
         } else {
             return true;

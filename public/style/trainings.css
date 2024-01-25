@@ -7,53 +7,43 @@
 html {
     font-size: 62.5%;
     overflow-x:hidden;
+    overflow-y: hidden;
 }
+
+body {
+    background-color: #333;
+    width: 100vw;
+    height: 100vh;
+}
+
+.form {
+    display: inline-block;
+}
+
 
 div.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+div.right-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    height: 100vh;
-}
-
-div.container div.left-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 40%;
-    height: 100vh;
-    background-image: url("../img/ligher.png");
-    background-position: center;
-    background-size: cover;
-}
-
-div.container div.left-first-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 7em;
+    height: 100%;
 }
 
 
-
-
-div.container div.right-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 50%;
-    height: 100vh;
-    background-image: url("../img/wallpaperflare.com_wallpaper.jpg");
-    background-position: center;
-    background-size: cover;
+.header {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
 }
 
 div.container div.right-container div.element-of-right-container {
-    margin: 11em;
+    margin: 2em;
 }
 
 .input-text {
@@ -78,12 +68,13 @@ div.container div.right-container-disactive {
 
 .title {
     font-size: 3em;
-    color: rgb(0, 8, 66);
+    color: #FE6D4E;
     margin-bottom: 1em;
+    z-index: 3;
 }
 
 .date-details-div, .add-exercise-div {
-    color: rgb(0, 8, 66);
+    color: #FF9463;
     margin: 0.5em;
     position: relative;
 }
@@ -99,7 +90,7 @@ button.details {
     border: none;
     background: none;
     cursor: pointer;
-    color: rgb(0, 8, 66);
+    color: rgb(255, 255, 255);
 }
 
 .line {
@@ -108,12 +99,6 @@ button.details {
     background-color: #000;
 }
 
-.difficult {
-    position: absolute;
-    top: 5px;
-    right: 0;
-    font-size: 1.4em;
-}
 
 .add {
     position: absolute;
@@ -140,28 +125,75 @@ button.details {
     padding: 0.4em 0.8em;
     margin: 0.4em 0.4em 0.4em 0em;
     outline: none;
+    color: #819898;
 }
 
 .input-parameters::placeholder {
-    color: rgb(0, 8, 66);
+    color: #FFC28B;
     padding: 1em;
 }
 
 .add-exercise {
-    margin: 1em 0em 1em 0em;
+    margin: 1em 0em 0em 0em;
     padding: 1em 8.56em;
     border: none;
     border-radius: 20px;
-    background-color: rgb(12, 33, 193);
+    background-color: #FE6D4E;
     color: #ffffff;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
-    margin-bottom: 1em;
     transition: background-color, 0.5s, 0.5s;
 }
 
 .add-exercise:hover {
-    background-color: rgb(9, 24, 136);
+    background-color: #ee5836;
 }
+
+.date {
+    color: #FF9463;
+}
+
+.link {
+    color: #FE6D4EFF;
+}
+
+.link:visited {
+    color: #FE6D4EFF;
+}
+
+
+.style-link::after {
+    background-color: #819898;
+}
+
+.logout-button::before,
+.logout-button::after {
+    width: 100%;
+    height: 100%;
+    background-color: #FE6D4EFF;
+    transition: .5s;
+}
+
+@media (max-width: 500px) {
+    div.right-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    }
+
+
+}
+
+@media (min-width: 500px) {
+    .header {
+        display: none;
+    }
+}
+
+
+
+
 /* color: #5A5A5D; */

@@ -51,6 +51,10 @@ class ExerciseRepository extends Repository {
         $statement->execute();
         $exercises = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+        if(!$exercises) {
+            throw new NotFoundException("Date not found");
+        }
+
         foreach ($exercises as $exercise) {
             $result[] = new Exercise(
                 $exercise['exercise_name'],

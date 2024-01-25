@@ -23,4 +23,10 @@ class DefaultController extends AppController {
     public function welcomeScreen() {
         $this->render('welcomeScreen');
     }
+
+    public function forgotPassword() {
+        $this->render('forgotPassword');
+    }
+
+
 }

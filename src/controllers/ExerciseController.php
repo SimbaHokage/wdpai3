@@ -23,6 +23,10 @@ class ExerciseController extends AppController
     }
 
     public function trainingsToBe() {
+        if(!AuthenticationController::checkIsUserLogged()) {
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+        }
         $this->render('trainingsToBe');
     }
 
